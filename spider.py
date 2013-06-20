@@ -85,8 +85,9 @@ class spider:
 		for i,rid in zip(range(1,len(toSearch)+1),toSearch):
 			meth_download=getattr(browser.browser,pageStyle)
 			record,run_info=meth_download(self.dl,rid)
-			if record is None:
+			if record is None or len(record) is 0:
 				self.log.error('{},{},error info:{}'.format(rid,pageStyle,run_info))
+				print('{},{},error info:{}'.format(rid,pageStyle,run_info))
 			else:
 				meth_save=getattr(default_storage,'save_{}'.format(pageStyle))
 				n=meth_save(self.repo,record,rid,run_info)

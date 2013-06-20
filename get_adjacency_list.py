@@ -12,17 +12,24 @@ def run(email, password):
 	else:
 		print('spider login success. rid={}'.format(rid))
 	spider.spider.getNet2(bot, rid)
+	return rid
 
 def main(argv):
-	if len(argv) != 3:
-		print('Usage: python3 %s useremail password' % argv[0])
+	if len(argv) != 5:
+		print('Usage: python3 %s useremail password adjacency_list_filename id_list_filename' % argv[0])
 		return
 	else:
-		email, password = argv[1], argv[2]
-		run(email, password)
+		email, password, adjacency_list_fn, id_list_fn = argv[1], argv[2], argv[3], argv[4]
+		adjacency_list_f = open(adjacency_list_fn, 'w')
+		id_list_f = open(id_list_fn, 'w')
+		my_rid = run(email, password)
 		friends = pickle.load(open('my_friends_friendList.p','rb'))
 		for p in friends.keys():
-			print (friends[p].keys())
+			print (p, end=" ", file=adjacency_list_f)
+			print (' '.join(friends[p].keys()), file=adjacency_list_f)
+		print (my_rid, 'Me', file=id_list_f)
+		for rid, name in friends[my_rid].items():
+			print (rid, name, file=id_list_f)
 
 if __name__ == '__main__':
 	main(sys.argv)
