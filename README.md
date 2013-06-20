@@ -32,6 +32,11 @@ spider login success. rid=498934189
 15:14:09 get net2 of 498934189,toSearch/total:40/40
 </code></pre>
 
+<pre><code>
+# 抓取好友的好友列表，生成邻接表。
+$ python3 get_adjacency_list.py renren_login_email renren_password adjacency_list_filename id_name_map_filename
+</code></pre>
+
 #### 图像显示好友网络结构图
 
 <pre><code>
