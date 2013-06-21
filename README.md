@@ -38,7 +38,7 @@ $ python3 get_adjacency_list.py renren_login_email renren_password adjacency_lis
 
 # 邻接表格式：
 # 每行第一列当前节点id 剩余列：朋友id
-# Example: 1 <--> 2, 2 <--> 3 1 <--> 3
+# Example: 1 -- 2, 2 -- 3 1 -- 3
 # 邻接表为:
 # 1 2 3
 # 2 3
