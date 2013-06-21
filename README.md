@@ -35,6 +35,14 @@ spider login success. rid=498934189
 <pre><code>
 # 抓取好友的好友列表，生成邻接表。
 $ python3 get_adjacency_list.py renren_login_email renren_password adjacency_list_filename id_name_map_filename
+
+# 邻接表格式：
+# 每行第一列当前节点id 剩余列：朋友id
+# Example: 1 <--> 2, 2 <--> 3 1 <--> 3
+# 邻接表为:
+# 1 2 3
+# 2 3
+# 3 2
 </code></pre>
 
 #### 图像显示好友网络结构图
